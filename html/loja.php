@@ -1,0 +1,33 @@
+<section class="fechado">
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Tipo</th>
+            <th><button>Comprar</button></th>
+        </tr>
+        <tr>
+            <th>Vida</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Dano</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Chance de Crítico</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Armadura</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Reflexo</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Velocidade</th>
+            <td></td>
+        </tr>
+    </table>
+</section>
