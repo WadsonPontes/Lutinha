@@ -1,3 +1,5 @@
+<?php include('cabecalho.php') ?>
+
 <section class="fechado">
     <table>
         <tr>
@@ -9,3 +11,7 @@
         </tr>
     </table>
 </section>
+
+<script>
+    
+</script>
