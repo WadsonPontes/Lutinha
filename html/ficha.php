@@ -1,36 +1,36 @@
-<section class="fechado">
+<section id="ficha" class="fechado">
     <table>
         <tr>
             <th>Energia</th>
-            <td></td>
+            <td class="energia"></td>
         </tr>
         <tr>
             <th>Vida</th>
-            <td></td>
+            <td class="vida"></td>
         </tr>
         <tr>
             <th>Dano</th>
-            <td></td>
+            <td class="dano"></td>
         </tr>
         <tr>
             <th>Chance de Crítico</th>
-            <td></td>
+            <td class="chance"></td>
         </tr>
         <tr>
             <th>Armadura</th>
-            <td></td>
+            <td class="armadura"></td>
         </tr>
         <tr>
             <th>Reflexo</th>
-            <td></td>
+            <td class="reflexo"></td>
         </tr>
         <tr>
             <th>Velocidade</th>
-            <td></td>
+            <td class="velocidade"></td>
         </tr>
     </table>
 
-    <h3>Pontos para distribuir: 0</h3>
+    <h3>Pontos para distribuir: <span class="pontos">0</span></h3>
 
     <table>
         <tr>
@@ -70,3 +70,7 @@
         </tr>
     </table>
 </section>
+
+<script>
+    const energia = document.queryElement('energia');
+</script>

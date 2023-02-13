@@ -1,4 +1,4 @@
-<section class="fechado">
+<section class="">
     <button>ENTRAR</button>
     <img id="cabelo" src="circulo">
     <img id="rosto" src="circulo">
