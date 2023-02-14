@@ -1,48 +1,34 @@
-<section id="historico" class="fechado">
-    <table id="tabela-historico">
-        <tr>
-            <th>Resultado</th>
-            <th>Nome</th>
-            <th>Nível</th>
-            <th>Pontos</th>
-            <th>Data</th>
-        </tr>
+<section id="tela-historico" class="fechado">
+    <table>
+        <thead>
+            <tr>
+                <th>Resultado</th>
+                <th>Nome</th>
+                <th>Nível</th>
+                <th>Pontos</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-historico">
+        </tbody>
     </table>
+
+    <footer id="paginacao-historico"></footer>
 </section>
 
 <script>
-    const tela_historico = document.querySelector('#historico');
+    const tela_historico = document.querySelector('#tela-historico');
     const tabela_historico = document.querySelector('#tabela-historico');
+    const paginacao_historico = document.querySelector('#paginacao-historico');
 
-    function historico() {
-        let historico = get('historico');
+    function historico(inicial = 1, quantidade = 10) {
+        let historicos = get('historico', inicial, quantidade);
 
         tela_historico.classList.remove('fechado');
         tela_atual = tela_historico;
         tabela_historico.innerHTML = '';
 
-        const tr_cabecalho = document.createElement('tr');
-        const th_resultado = document.createElement('td');
-        const th_nome = document.createElement('td');
-        const th_nivel = document.createElement('td');
-        const th_pontos = document.createElement('td');
-        const th_data = document.createElement('td');
-
-        th_resultado.textContent = 'Resultado';
-        th_nome.textContent = 'Nome';
-        th_nivel.textContent = 'Nível';
-        th_pontos.textContent = 'Pontos';
-        th_data.textContent = 'Data';
-
-        tr_cabecalho.appendChild(th_resultado);
-        tr_cabecalho.appendChild(th_nome);
-        tr_cabecalho.appendChild(th_nivel);
-        tr_cabecalho.appendChild(th_pontos);
-        tr_cabecalho.appendChild(th_data);
-
-        tabela_historico.appendChild(tr_cabecalho);
-
-        for (let luta of historico) {
+        for (let luta of historicos.lutas) {
             const tr_linha = document.createElement('tr');
             const td_resultado = document.createElement('td');
             const td_nome = document.createElement('td');
@@ -64,5 +50,7 @@
 
             tabela_historico.appendChild(tr_linha);
         }
+
+        paginacao(historico, paginacao_historico, inicial, quantidade, historicos.total);
     }
 </script>

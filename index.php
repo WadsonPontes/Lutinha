@@ -2,6 +2,7 @@
     <head>
     <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/capa.css">
+        <script src="js/api.js"></script>
     </head>
     <body>
         <main>

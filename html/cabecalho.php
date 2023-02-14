@@ -1,20 +1,19 @@
-<header id="cabecalho" class="fechado">
-    <a href="historico.php">HISTÓRICO DE BATALHAS</a>
-    <a href="ficha.php">FICHA DE PERSONAGEM</a>
-    <a href="inventario.php">INVENTÁRIO</a>
-    <a href="loja.php">LOJA</a>
-    <a href="treinamento.php">TREINAMENTO</a>
-    <a href="arena.php">ARENA</a>
-    <a href="classificacao.php">CLASSIFICAÇÃO</a>
-    <a href="sair.php">SAIR</a>
+<header id="tela-cabecalho" class="fechado">
+    <button onclick="abrir('historico')">HISTÓRICO DE BATALHAS</button>
+    <button onclick="abrir('ficha')">FICHA DE PERSONAGEM</button>
+    <button onclick="abrir('inventario')">INVENTÁRIO</button>
+    <button onclick="abrir('loja')">LOJA</button>
+    <button onclick="abrir('treinamento')">TREINAMENTO</button>
+    <button onclick="abrir('arena')">ARENA</button>
+    <button onclick="abrir('classificacao')">CLASSIFICAÇÃO</button>
+    <button onclick="abrir('sair')">SAIR</button>
 </header>
 
 <script>
-    let tela_atual = document.querySelector('#historico');
+    let tela_atual = document.querySelector('#tela-historico');
 
     function abrir(tela_nova) {
         tela_atual.classList.add('fechado');
-
         window[tela_nova]();
     }
 </script>
