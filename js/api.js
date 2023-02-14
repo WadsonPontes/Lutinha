@@ -1,15 +1,34 @@
 function get(tabela, ...args) {
-
+    return {
+        
+    };
 }
 
-function addBotaoPagina(clique, pai, inicial, quantidade, total, i) {
-    if (i == 0 || i == 2) criar(pai, 'button', '<<', false, clique, 1, quantidade);
-    else if (i == 1) criar(pai, 'button', '<', false, clique, Math.max(1, inicial - quantidade), quantidade);
-    else if (i == 3 && pagina() > 2) criar(pai, 'button', '1', false, clique, 1, quantidade);
+function addBotaoPagina(d) {
+    if (d.i == 0) criar(d.pai, 'button', '<<', false, d.clique, 1, d.quantidade);
+    else if (d.i == 1) criar(d.pai, 'button', '<', false, d.clique, Math.max(1, d.inicial - d.quantidade), d.quantidade);
+    else if (d.i == 2) criar(d.pai, 'button', '1', false, d.clique, 1, d.quantidade);
+    else if (d.i == 3 && pagina(d)) criar(d.pai, 'button', '...', true);
+    else if (d.i == 9 && pagina(d)) criar(d.pai, 'button', '...', true);
+    else if (d.i ==10 && pagina(d)) criar(d.pai, 'button', '...', true);
+    else if (d.i ==11) criar(d.pai, 'button', '>', false, d.clique, Math.min(ultimo(d), d.inicial + d.quantidade), d.quantidade);
+    else if (d.i ==12) criar(d.pai, 'button', '>>', false, d.clique, ultimo(d), d.quantidade);
+    else criar(d.pai, 'button', pagina(d.i), false, d.clique, primeiro(d.i), d.quantidade);
 }
 
-function pagina() {
-    
+function pagina(d) {
+    let p = Math.ceil((Math.max(1, d.inicial + (d.i - 6) * d.quantidade) + d.quantidade - 1) / Math.max(1, d.quantidade));
+
+    if (p < 2 || p * d.quantidade + 1 > d.total) return false;
+    return p;
+}
+
+function primeiro(d) {
+    return pagina(d.i - 1) * d.quantidade + 1;
+}
+
+function ultimo(d) {
+    return (Math.ceil(d.total / d.quantidade) - 1) * d.quantidade + 1;
 }
 
 function criar(pai, tipo, texto, desativado, clique, ...parametros) {
@@ -23,7 +42,7 @@ function criar(pai, tipo, texto, desativado, clique, ...parametros) {
 function paginacao(clique, pai, inicial, quantidade, total) {
     // << < 1 ... 5 6 |7| 8 9 ... 15 > >>
     for (let i = 0; i < 13; ++i) {
-        addBotaoPagina(clique, pai, inicial, quantidade, total, i);
+        addBotaoPagina({clique, pai, inicial, quantidade, total, i});
     }
 
     const botao_voltar_tudo = document.createElement('button');
