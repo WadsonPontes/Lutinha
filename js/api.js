@@ -1,6 +1,12 @@
 function get(tabela, ...args) {
     return {
-
+        total: 4,
+        dados: [
+            'Perdeu', 'Gratus', 32, -2, '02/03/2024',
+            'Ganhou', 'Italunn', 29, 10, '01/03/2024',
+            'Ganhou', 'Patreus', 20, 6, '26/02/2024',
+            'Perdeu', 'Brutralon', 37, -1, '25/02/2024'
+        ]
     };
 }
 
@@ -8,7 +14,7 @@ function pagina(d) {
     let p = Math.ceil((Math.max(1, d.inicial + (d.i - 6) * d.quantidade) + d.quantidade - 1) / Math.max(1, d.quantidade));
 
     if (p < 2 || p * d.quantidade + 1 > d.total) return false;
-    return p;
+    return p.toString();
 }
 
 function primeiro(d) {
