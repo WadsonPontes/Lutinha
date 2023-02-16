@@ -36,37 +36,37 @@
         <tr>
             <th>Vigor</th>
             <td id="vigor"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('vigor')">+</button></td>
         </tr>
         <tr>
             <th>Vitalidade</th>
             <td id="vitalidade"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('vitalidade')">+</button></td>
         </tr>
         <tr>
             <th>Força</th>
             <td id="forca"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('forca')">+</button></td>
         </tr>
         <tr>
             <th>Sorte</th>
             <td id="sorte"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('sorte')">+</button></td>
         </tr>
         <tr>
             <th>Resistência</th>
             <td id="resistencia"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('resistencia')">+</button></td>
         </tr>
         <tr>
             <th>Destreza</th>
             <td id="destreza"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('destreza')">+</button></td>
         </tr>
         <tr>
             <th>Agilidade</th>
             <td id="agilidade"></td>
-            <td><button>+</button></td>
+            <td><button onclick="distribuir('agilidade')">+</button></td>
         </tr>
     </table>
 </section>
@@ -109,5 +109,10 @@
         resistencia.textContent = resposta.resistencia;
         destreza.textContent = resposta.destreza;
         agilidade.textContent = resposta.agilidade;
+    }
+
+    function distribuir(atributo) {
+        let resposta = set('atributo', atributo);
+        ficha();
     }
 </script>
