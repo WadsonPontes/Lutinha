@@ -29,21 +29,21 @@ function criar(pai, tipo, texto, desativado, clique, ...parametros) {
 
 function criarPagina(d, texto, inicial_ou_desativado = false) {
     if (inicial_ou_desativado)
-        criar(d.pagicacao, 'button', texto, desativado, attTabela, d.nometabela, d.tabela, d.paginacao, inicial_ou_desativado, d.quantidade);
+        criar(d.pagicacao, 'button', texto, false, attTabela, d.nometabela, d.tabela, d.paginacao, d.inicial, d.quantidade, d.total);
     else
         criar(d.pagicacao, 'button', texto, true);
 }
 
 function addPagina(d) {
     if (d.i == 0) criarPagina(d, '<<', 1);
-    else if (d.i == 1) criar(d, '<', Math.max(1, d.inicial - d.quantidade));
-    else if (d.i == 2) criar(d, '1', 1);
-    else if (d.i == 3 && pagina(d)) criar(d, '...');
-    else if (d.i == 9 && pagina(d)) criar(d.pai, 'button', '...', true);
-    else if (d.i ==10 && pagina(d)) criar(d.pai, 'button', pagina(d.i), false, attTabela, d.nometabela, ultimo(d), d.quantidade);
-    else if (d.i ==11) criar(d.pai, 'button', '>', false, attTabela, d.nometabela, Math.min(ultimo(d), d.inicial + d.quantidade), d.quantidade);
-    else if (d.i ==12) criar(d.pai, 'button', '>>', false, attTabela, d.nometabela, ultimo(d), d.quantidade);
-    else criar(d.pai, 'button', pagina(d.i), false, attTabela, d.nometabela, primeiro(d.i), d.quantidade);
+    else if (d.i == 1) criarPagina(d, '<', Math.max(1, d.inicial - d.quantidade));
+    else if (d.i == 2) criarPagina(d, '1', 1);
+    else if (d.i == 3 && pagina(d)) criarPagina(d, '...');
+    else if (d.i == 9 && pagina(d)) criarPagina(d, '...');
+    else if (d.i ==10 && pagina(d)) criarPagina(d, pagina(d.i), ultimo(d));
+    else if (d.i ==11) criarPagina(d, '>', Math.min(ultimo(d), d.inicial + d.quantidade));
+    else if (d.i ==12) criarPagina(d, '>>', ultimo(d));
+    else criarPagina(d, pagina(d.i), primeiro(d.i));
 }
 
 function paginar(nometabela, tabela, pagicacao, inicial, quantidade, total) {
