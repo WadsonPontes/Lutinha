@@ -1,13 +1,37 @@
 function get(tabela, ...args) {
-    return {
-        total: 4,
-        dados: [
-            'Perdeu', 'Gratus', 32, -2, '02/03/2024',
-            'Ganhou', 'Italunn', 29, 10, '01/03/2024',
-            'Ganhou', 'Patreus', 20, 6, '26/02/2024',
-            'Perdeu', 'Brutralon', 37, -1, '25/02/2024'
-        ]
-    };
+    if (tabela == 'historico')
+        return {
+            total: 4,
+            dados: [
+                'Perdeu', 'Gratus', 32, -2, '02/03/2024',
+                'Ganhou', 'Italunn', 29, 10, '01/03/2024',
+                'Ganhou', 'Patreus', 20, 6, '26/02/2024',
+                'Perdeu', 'Brutralon', 37, -1, '25/02/2024'
+            ]
+        };
+    else if (tabela == 'ficha') {
+        return {
+            energia: 10,
+            vida: 1000,
+            dano: 100,
+            chance: 0.01,
+            armadura: 0.0,
+            reflexo: 0.05,
+            velocidade: 10,
+            pontos: 10,
+            vigor: 10,
+            vitalidade: 10,
+            forca: 10,
+            sorte: 10,
+            resistencia: 10,
+            destreza: 10,
+            agilidade: 10
+        };
+    }
+}
+
+function set(tabela, ...args) {
+    return;
 }
 
 function pagina(d) {
