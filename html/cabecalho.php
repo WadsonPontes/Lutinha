@@ -10,10 +10,5 @@
 </header>
 
 <script>
-    let tela_atual = document.querySelector('#tela-historico');
-
-    function abrir(tela_nova) {
-        tela_atual.classList.add('fechado');
-        window[tela_nova]();
-    }
+    
 </script>

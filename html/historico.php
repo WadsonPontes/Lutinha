@@ -23,7 +23,7 @@
 
     function historico(inicial = 1, quantidade = 10) {
         tela_historico.classList.remove('fechado');
-        tela_atual = tela_historico;
+        TELA_ATUAL = tela_historico;
         attTabela('historico', tabela_historico, paginacao_historico, inicial, quantidade);
     }
 </script>
